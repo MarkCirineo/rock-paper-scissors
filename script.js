@@ -2,26 +2,27 @@ var wins = 0;
 var losses = 0;
 var ties = 0;
 
-var start = window.confirm("Would you like to play Rock, Paper, Scissors");
+var start = confirm("Would you like to play Rock, Paper, Scissors");
 
 if (start) {
     game();
 }
 
 function game() {
-    var choice = window.prompt("Enter 'R' for rock, 'P' for paper, or 'S' for scissors");
+    var choice = prompt("Enter 'R' for rock, 'P' for paper, or 'S' for scissors");
     
     if (choice === "R" || choice === "r") {
-        window.alert("You chose Rock");
+        alert("You chose Rock");
         choice = "R";
     } else if (choice === "P" || choice === "p") {
-        window.alert("You chose Paper");
+        alert("You chose Paper");
         choice = "P";
     } else if (choice === "S" || choice === "s") {
-        window.alert("You chose Scissors");
+        alert("You chose Scissors");
         choice = "S";
     } else {
-        window.alert("Please enter only R, S or P.")
+        alert("Please enter only R, S or P.")
+        game();
     }
     
     function getNumber() {
@@ -42,18 +43,18 @@ function game() {
         computerChoice = "Scissors";
     }
     
-    window.alert("The computer chose " + computerChoice);
+    alert("The computer chose " + computerChoice);
  
     if (getChoice === choice) {
-        window.alert("The result is a tie")
+        alert("The result is a tie")
         ties++;
         results();
     } else if ( (getChoice === "R" && choice === "S") || (getChoice === "P" && choice === "R") || (getChoice === "S" && choice === "P")) {
-        window.alert("You lose")
+        alert("You lose")
         losses++;
         results();
     } else {
-        window.alert("You win!")
+        alert("You win!")
         wins++;
         results();
     }
