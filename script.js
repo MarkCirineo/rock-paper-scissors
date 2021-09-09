@@ -1,3 +1,7 @@
+var wins = 0;
+var losses = 0;
+var ties = 0;
+
 var start = window.confirm("Would you like to play Rock, Paper, Scissors");
 
 if (start) {
@@ -39,23 +43,24 @@ function game() {
     }
     
     window.alert("The computer chose " + computerChoice);
-    
-    var wins;
-    var losses;
-    var ties;
-    
+ 
     if (getChoice === choice) {
         window.alert("The result is a tie")
         ties++;
+        results();
     } else if ( (getChoice === "R" && choice === "S") || (getChoice === "P" && choice === "R") || (getChoice === "S" && choice === "P")) {
         window.alert("You lose")
         losses++;
+        results();
     } else {
         window.alert("You win!")
         wins++;
+        results();
     }
     
-    
+    function results() {
+        alert("Wins: " + wins + "\nLoses: " + losses + "\nTies: " + ties)
+    }
 
     var playAgain = confirm("Would you like to play again");
     if (playAgain) {
@@ -66,5 +71,3 @@ function game() {
 
 
 
-
-//As a user, I want to see my total wins, ties, and losses after each round.
